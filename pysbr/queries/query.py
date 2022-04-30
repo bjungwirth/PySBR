@@ -7,7 +7,6 @@ from functools import wraps
 from gql import Client, gql
 from gql.transport.requests import RequestsHTTPTransport
 import pandas as pd
-from fake_useragent import UserAgent
 
 import pysbr.utils as utils
 from pysbr.config.config import Config
@@ -33,7 +32,6 @@ class Query:
         self._arguments = utils.load_yaml((utils.build_yaml_path("arguments")))
         self._fields = utils.load_yaml((utils.build_yaml_path("fields")))
 
-        ua = UserAgent(verify_ssl=False)
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36",
             "Content-Type": "application/json",
